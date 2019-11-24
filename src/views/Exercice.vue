@@ -1,12 +1,11 @@
 <template>
   <div>
-    <h1>Exercice</h1>
     <ExercicesItem :exercice="exercice" />
   </div>
 </template>
 
 <script>
-import ExercicesItem from '@/components/ExercicesItem.vue';
+import ExercicesItem from '@/components/exercices/item/ExercicesItem.vue';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -21,7 +20,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(['getExerciceBySlug']),
+    ...mapGetters('exercices', ['getExerciceBySlug']),
     exercice() {
       return this.getExerciceBySlug(this.exerciceSlug);
     },

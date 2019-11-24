@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import ExercicesList from '@/components/ExercicesList.vue';
+import ExercicesList from '@/components/exercices/list/ExercicesList.vue';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -14,7 +14,7 @@ export default {
     ExercicesList,
   },
   computed: {
-    ...mapGetters(['exercices']),
+    ...mapGetters('exercices', ['exercices']),
   },
 };
 </script>
