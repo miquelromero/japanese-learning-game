@@ -1,20 +1,20 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Exercices from '../views/Exercices.vue';
-import Exercice from '../views/Exercice.vue';
+import Lessons from '../views/Lessons.vue';
+import Lesson from '../views/Lesson.vue';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/',
-    name: 'exercices',
-    component: Exercices,
+    name: 'lessons',
+    component: Lessons,
   },
   {
-    path: '/exercice/:exerciceSlug',
-    name: 'exercice',
-    component: Exercice,
+    path: '/lesson/:slug',
+    name: 'lesson',
+    component: Lesson,
     props: true,
   },
 ];
