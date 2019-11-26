@@ -1,5 +1,7 @@
 <template>
-  <button
+  <component
+    v-bind="routerLinkProps"
+    :is="component"
     @click="$emit('click', $event)"
     class="py-2 px-4 rounded w-full"
     :class="[
@@ -8,7 +10,7 @@
     ]"
   >
     <slot />
-  </button>
+  </component>
 </template>
 
 <script>
@@ -19,10 +21,29 @@ export default {
       mandatory: false,
       default: false,
     },
+    to: {
+      type: Object,
+      mandatory: false,
+      default: undefined,
+    },
   },
   computed: {
     primary() {
       return !this.alternative;
+    },
+    isRouterLink() {
+      return this.to !== undefined;
+    },
+    component() {
+      return this.isRouterLink ? 'router-link' : 'button';
+    },
+    routerLinkProps() {
+      return this.isRouterLink
+        ? {
+            to: this.to,
+            tag: 'button',
+          }
+        : {};
     },
   },
 };
