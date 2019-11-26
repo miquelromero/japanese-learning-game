@@ -1,11 +1,15 @@
 <template>
-  <div>
-    <button class="button is-primary is-large is-fullwidth" @click="start">
-      Try again
-    </button>
-    <button class="button is-white is-large is-fullwidth" @click="home">
-      Back
-    </button>
+  <div class="flex flex-row -mx-2">
+    <div class="w-1/2 px-2">
+      <app-button alternative @click="home">
+        Back
+      </app-button>
+    </div>
+    <div class="w-1/2 px-2">
+      <app-button @click="start">
+        Try again
+      </app-button>
+    </div>
   </div>
 </template>
 

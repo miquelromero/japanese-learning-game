@@ -1,16 +1,15 @@
 <template>
-  <div id="app">
+  <div id="app" class="flex w-full h-full">
     <router-view />
   </div>
 </template>
 
 <style>
 html,
-body,
-#app {
-  height: 100%;
-  width: 100%;
+body {
   display: flex;
+  width: 100%;
+  height: 100%;
   @apply font-body;
 }
 </style>

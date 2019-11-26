@@ -18,6 +18,9 @@ module.exports = {
           900: '#411612',
         },
       },
+      container: {
+        center: true,
+      },
     },
   },
   variants: {},

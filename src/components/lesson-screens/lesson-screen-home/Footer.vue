@@ -1,14 +1,15 @@
 <template>
-  <div>
-    <app-button @click="start">
-      Play
-    </app-button>
-    <RouterLink
-      class="button is-white is-large is-fullwidth"
-      tag="button"
-      :to="{ name: 'lessons' }"
-      >Choose another lesson</RouterLink
-    >
+  <div class="flex flex-row -mx-2">
+    <div class="w-1/2 px-2">
+      <app-button alternative :to="{ name: 'lessons' }">
+        Back
+      </app-button>
+    </div>
+    <div class="w-1/2 px-2">
+      <app-button @click="start">
+        Play
+      </app-button>
+    </div>
   </div>
 </template>
 

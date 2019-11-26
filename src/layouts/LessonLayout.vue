@@ -1,14 +1,18 @@
 <template>
   <div class="flex flex-col flex-grow">
-    <div class="p-5" v-if="hasHeader">
+    <div class="p-4" v-if="hasHeader">
       <template v-if="hasHeaderSlot"><slot name="header"/></template>
       <h1 v-if="hasTitle" class="title">{{ title }}</h1>
     </div>
-    <div class="flex-grow p-5" v-if="hasContentSlot">
-      <slot name="content" />
+    <div class="flex-grow p-4" v-if="hasContentSlot">
+      <div class="container">
+        <slot name="content" />
+      </div>
     </div>
-    <div class="p-5 shadow-lg" v-if="hasFooterSlot">
-      <slot name="footer" />
+    <div class="p-4 shadow-lg" v-if="hasFooterSlot">
+      <div class="container">
+        <slot name="footer" />
+      </div>
     </div>
   </div>
 </template>
