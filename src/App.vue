@@ -4,12 +4,13 @@
   </div>
 </template>
 
-<style lang="scss">
+<style>
 html,
 body,
 #app {
   height: 100%;
   width: 100%;
   display: flex;
+  @apply font-body;
 }
 </style>

@@ -1,8 +1,8 @@
 <template>
   <div>
-    <button class="button is-primary is-large is-fullwidth" @click="start">
+    <app-button @click="start">
       Play
-    </button>
+    </app-button>
     <RouterLink
       class="button is-white is-large is-fullwidth"
       tag="button"

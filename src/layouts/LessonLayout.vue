@@ -1,13 +1,13 @@
 <template>
-  <div class="app-layout">
-    <div class="app-layout__header" v-if="hasHeader">
+  <div class="flex flex-col flex-grow">
+    <div class="p-5" v-if="hasHeader">
       <template v-if="hasHeaderSlot"><slot name="header"/></template>
       <h1 v-if="hasTitle" class="title">{{ title }}</h1>
     </div>
-    <div class="app-layout__content" v-if="hasContentSlot">
+    <div class="flex-grow p-5" v-if="hasContentSlot">
       <slot name="content" />
     </div>
-    <div class="app-layout__footer" v-if="hasFooterSlot">
+    <div class="p-5 shadow-lg" v-if="hasFooterSlot">
       <slot name="footer" />
     </div>
   </div>
@@ -41,29 +41,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.app-layout {
-  max-width: 600px;
-  margin: 0 auto;
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
-  &__header {
-    padding: 20px;
-    text-align: center;
-  }
-  &__content {
-    flex-grow: 1;
-    padding: 20px;
-    overflow-y: auto;
-  }
-  &__footer {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    > *:not(:first-child) {
-      margin-top: 20px;
-    }
-  }
-}
-</style>
+<style scoped></style>
