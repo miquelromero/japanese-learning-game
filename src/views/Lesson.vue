@@ -11,7 +11,7 @@
 
 <script>
 import { mapState, mapGetters, mapActions } from 'vuex';
-import LessonLayout from '@/layouts/LessonLayout';
+import LessonLayout from '@/layouts/LessonLayout.vue';
 
 export default {
   components: {

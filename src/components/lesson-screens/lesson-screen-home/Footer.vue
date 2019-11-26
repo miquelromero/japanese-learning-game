@@ -4,7 +4,7 @@
       Play
     </button>
     <RouterLink
-      class="button is-white is-medium is-fullwidth"
+      class="button is-white is-large is-fullwidth"
       tag="button"
       :to="{ name: 'lessons' }"
       >Choose another lesson</RouterLink
