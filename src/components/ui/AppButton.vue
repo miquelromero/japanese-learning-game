@@ -3,7 +3,7 @@
     v-bind="routerLinkProps"
     :is="component"
     @click="$emit('click', $event)"
-    class="py-2 px-4 rounded w-full"
+    class="py-2 px-4 rounded w-full text-2xl"
     :class="[
       ...(primary ? ['bg-primary-500 hover:bg-primary-400 text-white'] : []),
       ...(alternative ? ['bg-white'] : []),

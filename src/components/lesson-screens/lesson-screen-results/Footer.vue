@@ -1,11 +1,11 @@
 <template>
-  <div class="flex flex-row -mx-2">
-    <div class="w-1/2 px-2">
+  <div class="flex flex-col-reverse -my-2 md:flex-row md:-mx-2">
+    <div class="py-2 md:w-1/2 md:px-2">
       <app-button alternative @click="home">
-        Back
+        Back to lesson
       </app-button>
     </div>
-    <div class="w-1/2 px-2">
+    <div class="py-2 md:w-1/2 md:px-2">
       <app-button @click="start">
         Try again
       </app-button>
