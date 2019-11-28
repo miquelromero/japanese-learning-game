@@ -9,11 +9,13 @@
         <slot name="content" />
       </div>
     </div>
-    <div class="p-4 shadow" v-if="hasFooterSlot">
-      <div class="container">
-        <slot name="footer" />
+    <transition name="transition-slide-up" mode="out-in" appear>
+      <div class="p-4 shadow bg-white" v-if="hasFooterSlot">
+        <div class="container">
+          <slot name="footer" />
+        </div>
       </div>
-    </div>
+    </transition>
   </div>
 </template>
 <script>
@@ -44,5 +46,3 @@ export default {
   },
 };
 </script>
-
-<style scoped></style>

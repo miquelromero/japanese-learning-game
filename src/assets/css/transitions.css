@@ -1,0 +1,10 @@
+.transition {
+  &-slide-up {
+    &-enter-active, &-leave-active {
+      transition: all 0.3s ease;
+    }  
+    &-enter, &-leave-to {
+      transform: translateY(100%);
+    }
+  }
+}

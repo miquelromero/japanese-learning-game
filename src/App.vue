@@ -1,15 +1,14 @@
 <template>
-  <div id="app" class="flex w-full h-full">
+  <div id="app" class="flex w-full h-full bg-gray-200">
     <router-view />
   </div>
 </template>
 
-<style>
-html,
-body {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  @apply font-body;
-}
-</style>
+<script>
+export default {
+  metaInfo: {
+    viewport:
+      'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no',
+  },
+};
+</script>

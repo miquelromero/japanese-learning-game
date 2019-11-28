@@ -3,8 +3,11 @@ import App from './App.vue';
 import './registerServiceWorker';
 import router from './router';
 import store from './store';
-import '@/assets/css/tailwind.css';
+import '@/assets/css/index.css';
 import AppButton from '@/components/ui/AppButton.vue';
+import VueMeta from 'vue-meta';
+
+Vue.use(VueMeta);
 
 Vue.component('app-button', AppButton);
 
