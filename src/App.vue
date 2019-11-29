@@ -7,6 +7,7 @@
 <script>
 export default {
   metaInfo: {
+    title: `${process.env.VUE_APP_NAME} - ${process.env.VUE_APP_DESCRIPTION}`,
     viewport:
       'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no',
   },
