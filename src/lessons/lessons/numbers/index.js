@@ -3,7 +3,7 @@ import modalities from '@/lessons/modalities';
 import inputTypes from '@/lessons/input-types';
 
 export default {
-  active: true,
+  active: false,
   slug: 'numbers',
   title: 'Numbers',
   info: Info,
