@@ -1,7 +1,7 @@
 <template>
   <app-layout :layout-props="layoutProps">
-    <div class="container absolute h-full w-full top-0">
-      <div class="flex flex-col h-full">
+    <div class="absolute h-full w-full top-0">
+      <div class="container flex flex-col h-full">
         <div class="flex flex-grow p-4">
           <game-question
             :question="currentQuestion"
