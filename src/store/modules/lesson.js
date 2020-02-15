@@ -56,7 +56,10 @@ export default {
       commit('setView', lessonViews.GAME);
       commit(
         'setQuestions',
-        state.lesson.questions.generate({ modality: state.modality }),
+        state.lesson.questions.generate({
+          modality: state.modality,
+          number: 30,
+        }),
       );
       commit('setQuestionPosition', 0);
     },
