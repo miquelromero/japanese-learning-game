@@ -15,6 +15,6 @@ export default class QuestionsSetGenerator {
       Array(repetitions)
         .fill(uniqueQuestionsSet)
         .flat(),
-    ).slice(number);
+    ).slice(0, number);
   }
 }
