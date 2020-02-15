@@ -1,48 +1,81 @@
-import lessonScreens from '@/components/lesson-screens';
+import lessonViews from '@/views/lesson/index';
+import modalities from '@/lessons/modalities';
 
 export default {
   namespaced: true,
   state: {
-    lesson: undefined,
-    screen: undefined,
-    score: undefined,
+    lesson: null,
+    modality: null,
+    view: null,
+    questionPosition: null,
+    questions: null,
+    answer: null,
+  },
+  getters: {
+    currentQuestion: state => state.questions[state.questionPosition],
+    isCorrectAnswer: (state, getters) =>
+      state.answer !== null
+        ? state.answer === getters.currentQuestion.value
+        : null,
+    isLastQuestion: state =>
+      state.questionPosition + 1 === state.questions.length,
+    isAnswerSent: state => state.answer !== null,
   },
   mutations: {
     setLesson: (state, lesson) => {
       state.lesson = lesson;
     },
-    setScreen: (state, screen) => {
-      state.screen = screen;
+    setView: (state, view) => {
+      state.view = view;
     },
-    setScore: (state, score) => {
-      state.score = score;
+    setQuestionPosition: (state, questionPosition) => {
+      state.questionPosition = questionPosition;
     },
-    clearScore: state => {
-      state.score = undefined;
+    setModality: (state, modality) => {
+      state.modality = modality;
+    },
+    setQuestions: (state, questions) => {
+      state.questions = questions;
+    },
+    setAnswer: (state, answer) => {
+      state.answer = answer;
     },
   },
   actions: {
     setLesson: ({ commit }, lesson) => {
       commit('setLesson', lesson);
-      commit('clearScore');
-      commit('setScreen', lessonScreens.HOME);
+      commit('setView', lessonViews.HOME);
+      commit('setModality', modalities.ROMAJI);
     },
     clearLessonData: ({ commit }) => {
-      commit('setLesson', undefined);
-      commit('clearScore');
-      commit('setScreen', undefined);
+      commit('setLesson', null);
+      commit('setView', null);
+      commit('setAnswer', null);
     },
-    start: ({ commit }) => {
-      commit('clearScore');
-      commit('setScreen', lessonScreens.GAME);
+    start: ({ state, commit }) => {
+      commit('setView', lessonViews.GAME);
+      commit(
+        'setQuestions',
+        state.lesson.questions.generate({ modality: state.modality }),
+      );
+      commit('setQuestionPosition', 0);
     },
-    finish: ({ commit }, { score }) => {
-      commit('setScore', score);
-      commit('setScreen', lessonScreens.RESULTS);
+    sendAnswer: ({ commit }, answer) => {
+      commit('setAnswer', answer);
+    },
+    nextQuestion: ({ state, getters, commit, dispatch }) => {
+      commit('setAnswer', null);
+      if (getters.isLastQuestion) {
+        dispatch('finish');
+      } else {
+        commit('setQuestionPosition', state.questionPosition + 1);
+      }
+    },
+    finish: ({ commit }) => {
+      commit('setView', lessonViews.RESULTS);
     },
     home: ({ commit }) => {
-      commit('clearScore');
-      commit('setScreen', lessonScreens.HOME);
+      commit('setView', lessonViews.HOME);
     },
   },
 };

@@ -1,12 +1,12 @@
 <template>
   <div class="flex flex-col-reverse -my-2 md:flex-row md:-mx-2">
     <div class="py-2 md:w-1/2 md:px-2">
-      <app-button alternative :to="{ name: 'lessons' }">
+      <app-button type="alternative" :to="{ name: 'lessons' }" full-width>
         Other lessons
       </app-button>
     </div>
     <div class="py-2 md:w-1/2 md:px-2">
-      <app-button @click="start">
+      <app-button @click="start" full-width>
         Play
       </app-button>
     </div>

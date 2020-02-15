@@ -3,10 +3,23 @@
     v-bind="routerLinkProps"
     :is="component"
     @click="$emit('click', $event)"
-    class="py-2 px-4 rounded w-full text-2xl"
+    class="border focus:outline-none"
+    :disabled="disabled"
     :class="[
-      ...(primary ? ['bg-primary-500 hover:bg-primary-400 text-white'] : []),
-      ...(alternative ? ['bg-white'] : []),
+      ...(fullWidth ? ['w-full'] : []),
+      ...(pill ? ['rounded-full'] : ['rounded']),
+      ...(size === 'small' ? ['py-2 px-4 text-xl'] : []),
+      ...(size === 'medium' ? ['py-2 px-4 text-2xl'] : []),
+      ...(type === 'primary'
+        ? ['bg-primary-500 border-transparent text-white']
+        : []),
+      ...(type === 'alternative' ? ['bg-white'] : []),
+      ...(disabled ? ['opacity-75'] : []),
+      ...(type === 'outlined'
+        ? [
+            'bg-white active:bg-primary-500 text-primary-500 active:text-white border-primary-500 active:border-transparent',
+          ]
+        : []),
     ]"
   >
     <slot />
@@ -16,7 +29,35 @@
 <script>
 export default {
   props: {
-    alternative: {
+    type: {
+      type: String,
+      mandatory: false,
+      default: 'primary',
+      validator: value =>
+        ['primary', 'alternative', 'outlined'].includes(value),
+    },
+    size: {
+      type: String,
+      mandatory: false,
+      default: 'medium',
+      validator: value => ['small', 'medium'].includes(value),
+    },
+    selected: {
+      type: Boolean,
+      mandatory: false,
+      default: false,
+    },
+    pill: {
+      type: Boolean,
+      mandatory: false,
+      default: false,
+    },
+    disabled: {
+      type: Boolean,
+      mandatory: false,
+      default: false,
+    },
+    fullWidth: {
       type: Boolean,
       mandatory: false,
       default: false,
@@ -28,9 +69,6 @@ export default {
     },
   },
   computed: {
-    primary() {
-      return !this.alternative;
-    },
     isRouterLink() {
       return this.to !== undefined;
     },

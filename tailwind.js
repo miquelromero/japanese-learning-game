@@ -2,7 +2,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Schoolbell', 'cursive'],
+        body: ['Noto Sans JP', 'sans-serif'],
       },
       colors: {
         // Generated with https://github.com/javisperez/tailwindcolorshades
@@ -23,6 +23,12 @@ module.exports = {
       },
     },
   },
-  variants: {},
+  variants: {
+    borderWidth: ['last'],
+    backgroundColor: ['active'],
+    textColor: ['active'],
+    borderColor: ['active'],
+    outline: ['focus'],
+  },
   plugins: [],
 };

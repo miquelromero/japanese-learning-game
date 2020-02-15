@@ -1,4 +1,5 @@
-@import 'http://fonts.googleapis.com/css?family=Schoolbell';
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap');
 
 @tailwind base;
 @tailwind components;

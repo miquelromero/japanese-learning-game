@@ -1,22 +1,11 @@
 <template>
-  <lesson-layout>
-    <template #content>
-      <component :is="screen.content" />
-    </template>
-    <template v-if="screen.footer !== undefined" #footer>
-      <component :is="screen.footer" />
-    </template>
-  </lesson-layout>
+  <component :is="view" />
 </template>
 
 <script>
 import { mapState, mapGetters, mapActions } from 'vuex';
-import LessonLayout from '@/layouts/LessonLayout.vue';
 
 export default {
-  components: {
-    LessonLayout,
-  },
   props: {
     slug: {
       type: String,
@@ -25,7 +14,7 @@ export default {
     },
   },
   computed: {
-    ...mapState('lesson', ['screen']),
+    ...mapState('lesson', ['view']),
     ...mapGetters('lessons', ['getLessonBySlug']),
     lesson() {
       return this.getLessonBySlug(this.slug);
@@ -42,7 +31,7 @@ export default {
       },
     },
   },
-  destroyed() {
+  beforeDestroy() {
     this.clearLessonData();
   },
 };

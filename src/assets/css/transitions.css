@@ -7,4 +7,20 @@
       transform: translateY(100%);
     }
   }
+  &-slide-down {
+    &-enter-active, &-leave-active {
+      transition: all 0.3s ease;
+    }  
+    &-enter, &-leave-to {
+      transform: translateY(-100%);
+    }
+  }
+  &-fade {
+    &-enter-active, &-leave-active {
+      transition: all 0.3s ease;
+    }  
+    &-enter, &-leave-to {
+      opacity: 0;
+    }
+  }
 }
